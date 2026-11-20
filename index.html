@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geometry homework solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, clear worked solutions, like a good teacher's notebook
+   IDEA: a squared exercise-book page, figure on the left, working on the right
+   PICTURE: each to-scale figure drawn beside its own step-by-step answer
+   COLOUR and TYPE: white paper, dark ink, teacher's red for answers, blue pen for key lines; Libre Franklin
+   LAYOUT: one card per problem, two columns that stack under 760px */
+:root{color-scheme:light dark;--bg:light-dark(#f6f7f9,#14171b);--paper:light-dark(#ffffff,#1c2026);--ink:light-dark(#1a1d21,#e8eaed);--mut:light-dark(#5b6168,#a3a9b0);--line:light-dark(#d9dde2,#343a42);--grid:light-dark(#eef1f5,#20252c);--red:light-dark(#c2362b,#ff7a6e);--blue:light-dark(#1f5fbf,#7fb0ff);--ans:light-dark(#fdecea,#3a2422)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Libre Franklin",system-ui,sans-serif;overflow-x:clip}
+header{padding:clamp(24px,4vw,48px) max(5vw,16px) 12px;max-width:1240px;margin:0 auto}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.05;font-weight:800;margin:0 0 8px;text-wrap:balance}
+header p{margin:0;color:var(--mut)}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+nav a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600;background:var(--paper)}
+nav a:hover,nav a:focus-visible{border-color:var(--blue);color:var(--blue);outline:none}
+main{max-width:1240px;margin:0 auto;padding:12px max(5vw,16px) 48px;display:grid;gap:20px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:12px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);overflow:hidden;scroll-margin-top:16px}
+.fig{background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;padding:20px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line)}
+.fig svg{width:100%;height:auto;max-height:380px}
+.sol{padding:22px 26px}
+h2{font-size:22px;margin:0 0 6px;font-weight:800}
+.task{color:var(--mut);margin:0 0 12px;font-size:15px}
+ol{margin:0;padding-left:1.3em}
+li{margin:0 0 8px}
+li b{color:var(--blue);font-weight:600}
+.ans{margin-top:14px;background:var(--ans);color:var(--red);font-weight:800;padding:10px 14px;border-radius:8px}
+.note{margin-top:10px;font-size:14px;color:var(--mut)}
+svg .t{fill:var(--ink);font-size:14px}
+svg .ts{fill:var(--mut);font-size:13px}
+svg .th{fill:var(--ink);font-size:15px;font-weight:600}
+svg .ink{stroke:var(--ink)}svg .thin{stroke:var(--mut)}svg .dot{fill:var(--ink)}
+@media(max-width:760px){section{grid-template-columns:minmax(0,1fr)}.fig{border-right:0;border-bottom:1px solid var(--line)}.sol{padding:18px}}
+@media print{body{background:#fff}nav{display:none}section{break-inside:avoid;border-color:#ccc}}
+</style>
+</head>
+<body>
+<header>
+<h1>Бие даалт №1 — step-by-step solutions</h1>
+<p>Problems 1–20. Each figure is drawn to scale, with the full working beside it.</p>
+<nav><a href="#p1">1</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a><a href="#p17">17</a><a href="#p18">18</a><a href="#p19">19</a><a href="#p20">20</a></nav>
+</header>
+<main>
+
+<section id="p1">
+<div class="fig"><svg viewBox="10 15 380 370" role="img" aria-label="Pentagon ABCDE in a circle of radius 4">
+<circle cx="200" cy="190" r="152" fill="none" class="thin" stroke-width="1"/>
+<polygon points="92.5,297.5 92.5,82.5 239.3,43.2 346.8,150.7 307.5,297.5" fill="#D85A30" fill-opacity="0.12" class="ink" stroke-width="1.5"/>
+<g class="thin" stroke-width="0.8" stroke-dasharray="4 4"><line x1="200" y1="190" x2="92.5" y2="297.5"/><line x1="200" y1="190" x2="92.5" y2="82.5"/><line x1="200" y1="190" x2="239.3" y2="43.2"/><line x1="200" y1="190" x2="346.8" y2="150.7"/><line x1="200" y1="190" x2="307.5" y2="297.5"/></g>
+<line x1="92.5" y1="82.5" x2="307.5" y2="297.5" stroke="#378ADD" stroke-width="1"/>
+<line x1="92.5" y1="82.5" x2="346.8" y2="150.7" stroke="#378ADD" stroke-width="1"/>
+<circle cx="200" cy="190" r="3" class="dot"/><text class="t" x="208" y="208">O</text>
+<text class="th" x="76" y="316">A</text><text class="th" x="72" y="76">B</text><text class="th" x="240" y="32">C</text><text class="th" x="356" y="152">D</text><text class="th" x="314" y="318">E</text>
+<text class="ts" x="30" y="194" text-anchor="middle">90°</text><text class="ts" x="156" y="30" text-anchor="middle">60°</text><text class="ts" x="324" y="70">60°</text><text class="ts" x="362" y="240">60°</text><text class="ts" x="200" y="372" text-anchor="middle">90°</text>
+</svg></div>
+<div class="sol"><h2>Problem 1</h2>
+<p class="task">R = 4, ABCDE inscribed, AB = 4√2, ∠ABE = 45°, ∠EBD = 30°, BC = CD. Find the area.</p>
+<ol>
+<li>Law of sines: AB = 2R·sin∠AEB → 4√2 = 8·sin∠AEB → ∠AEB = 45° → <b>arc AB = 90°</b>.</li>
+<li>Inscribed angle = half its arc: ∠ABE = 45° → <b>arc AE = 90°</b>.</li>
+<li>∠EBD = 30° → <b>arc ED = 60°</b>.</li>
+<li>arc BC + arc CD = 360° − 90° − 90° − 60° = 120°. BC = CD → <b>arc BC = arc CD = 60°</b>.</li>
+<li>Cut the pentagon into 5 triangles from O. Each: S = ½R²·sin φ = 8·sin φ.</li>
+<li>S = 8·sin90° + 8·sin90° + 3·8·sin60° = 8 + 8 + 12√3.</li>
+</ol>
+<div class="ans">Answer: S = 16 + 12√3 ≈ 36.8</div></div>
+</section>
+
+<section id="p2">
+<div class="fig"><svg viewBox="140 70 490 170" role="img" aria-label="Tangent AB and sector AOC">
+<circle cx="420" cy="200" r="120" fill="none" class="thin" stroke-width="1"/>
+<path d="M420,200 L300,200 A120,120 0 0,1 360,96.1 Z" fill="#D85A30" fill-opacity="0.25" stroke="none"/>
+<polygon points="180,200 360,96.1 420,200" fill="none" class="ink" stroke-width="1.5"/>
+<path d="M369.5,112.5 L353,122 L343.5,105.6" fill="none" class="ink" stroke-width="1"/>
+<path d="M395,200 A25,25 0 0,1 407.5,178.3" fill="none" class="ink" stroke-width="1"/>
+<circle cx="420" cy="200" r="3" class="dot"/>
+<text class="th" x="428" y="218">O</text><text class="th" x="354" y="86">A</text><text class="th" x="160" y="206">B</text><text class="th" x="290" y="222">C</text>
+<text class="ts" x="370" y="190">60°</text><text class="ts" x="400" y="140">OA = 2</text><text class="ts" x="236" y="130">AB = 2√3</text><text class="ts" x="226" y="222">OB = 4</text>
+</svg></div>
+<div class="sol"><h2>Problem 2</h2>
+<p class="task">AB is tangent, OB meets the circle at C, ∠AOC = 60°, sector area = 2π/3. Find S(AOB).</p>
+<ol>
+<li>Sector area: (60°/360°)·πr² = 2π/3 → πr²/6 = 2π/3 → r² = 4 → <b>r = OA = 2</b>.</li>
+<li>A tangent is perpendicular to the radius → <b>∠OAB = 90°</b>.</li>
+<li>In right triangle OAB: AB = OA·tan60° = <b>2√3</b>.</li>
+<li>S = ½·OA·AB = ½·2·2√3.</li>
+</ol>
+<div class="ans">Answer: S = 2√3 ≈ 3.46</div></div>
+</section>
+
+<section id="p3">
+<div class="fig"><svg viewBox="70 45 440 250" role="img" aria-label="Right triangle with incircle">
+<polygon points="120,260 495,260 120,60" fill="none" class="ink" stroke-width="1.5"/>
+<circle cx="195" cy="185" r="75" fill="#1D9E75" fill-opacity="0.15" stroke="#1D9E75" stroke-width="1"/>
+<path d="M120,245 L135,245 L135,260" fill="none" class="ink" stroke-width="1"/>
+<line x1="195" y1="185" x2="195" y2="260" stroke="#1D9E75" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="195" cy="185" r="3" class="dot"/>
+<text class="ts" x="202" y="228">r = 3</text><text class="ts" x="300" y="282" text-anchor="middle">15</text><text class="ts" x="98" y="164" text-anchor="middle">8</text><text class="ts" x="330" y="140">17</text>
+</svg></div>
+<div class="sol"><h2>Problem 3</h2>
+<p class="task">Right triangle, legs 15 and 8. Find the radius of the inscribed circle.</p>
+<ol>
+<li>Hypotenuse: c = √(15² + 8²) = √289 = <b>17</b>.</li>
+<li>Incircle of a right triangle: r = (a + b − c)/2 = (15 + 8 − 17)/2 = <b>3</b>.</li>
+<li>Check: r = S/p = 60/20 = 3 ✓ (S = ½·15·8 = 60, p = 40/2 = 20).</li>
+</ol>
+<div class="ans">Answer: r = 3</div></div>
+</section>
+
+<section id="p4">
+<div class="fig"><svg viewBox="90 55 350 300" role="img" aria-label="Triangle ABC with orthocenter H">
+<polygon points="120,320 420,320 356.6,83.4" fill="none" class="ink" stroke-width="1.5"/>
+<g class="thin" stroke-width="0.8" stroke-dasharray="4 3"><line x1="356.6" y1="83.4" x2="356.6" y2="320"/><line x1="420" y1="320" x2="270" y2="170"/><line x1="120" y1="320" x2="399.9" y2="245"/></g>
+<line x1="120" y1="320" x2="356.6" y2="256.6" stroke="#D85A30" stroke-width="3"/>
+<circle cx="356.6" cy="256.6" r="4" fill="#D85A30"/>
+<text class="th" x="100" y="336">A</text><text class="th" x="426" y="336">B</text><text class="th" x="352" y="74">C</text><text class="th" x="334" y="252">H</text>
+<text class="ts" x="160" y="310">45°</text><text class="ts" x="380" y="310">75°</text><text class="ts" x="344" y="114">60°</text><text class="ts" x="270" y="345" text-anchor="middle">AB = 2</text><text class="ts" x="210" y="282">AH</text>
+</svg></div>
+<div class="sol"><h2>Problem 4</h2>
+<p class="task">AB = 2, ∠A = 45°, ∠B = 75°, H is the orthocenter. Find AH.</p>
+<ol>
+<li>∠C = 180° − 45° − 75° = <b>60°</b>.</li>
+<li>Law of sines: 2R = AB/sin C = 2/(√3/2) = <b>4/√3</b>.</li>
+<li>Vertex-to-orthocenter rule: <b>AH = 2R·cos A</b>.</li>
+<li>AH = (4/√3)·(√2/2) = 2√2/√3 = 2√6/3.</li>
+<li>Check with coordinates A(0;0), B(2;0): H ≈ (1.577; 0.423), AH ≈ 1.633 ✓</li>
+</ol>
+<div class="ans">Answer: AH = 2√6/3 ≈ 1.63</div></div>
+</section>
+
+<section id="p5">
+<div class="fig"><svg viewBox="190 45 290 260" role="img" aria-label="Cyclic quadrilateral ABCD">
+<circle cx="340" cy="180" r="120" fill="none" class="thin" stroke-width="1"/>
+<polygon points="227.2,221 262.9,88.1 400,76.1 443.9,240" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="227.2" y1="221" x2="400" y2="76.1" stroke="#378ADD" stroke-width="1"/>
+<g stroke="#D85A30" stroke-width="1.2" stroke-dasharray="4 3"><line x1="340" y1="180" x2="400" y2="76.1"/><line x1="340" y1="180" x2="443.9" y2="240"/></g>
+<line x1="400" y1="76.1" x2="443.9" y2="240" stroke="#D85A30" stroke-width="2.5"/>
+<path d="M347.5,167 L360.5,174.5 L353,187.5" fill="none" stroke="#D85A30" stroke-width="1"/>
+<circle cx="340" cy="180" r="3" class="dot"/>
+<text class="th" x="322" y="196">O</text><text class="th" x="206" y="232">A</text><text class="th" x="244" y="80">B</text><text class="th" x="402" y="66">C</text><text class="th" x="450" y="256">D</text>
+<text class="ts" x="262" y="214">45°</text><text class="ts" x="430" y="160">√2</text>
+</svg></div>
+<div class="sol"><h2>Problem 5</h2>
+<p class="task">ABCD inscribed, CD = √2, ∠CAD = 45°. Find the circumradius R.</p>
+<ol>
+<li>∠CAD is inscribed and stands on chord CD → central angle <b>∠COD = 2·45° = 90°</b>.</li>
+<li>OC = OD = R, so in right triangle COD: CD² = R² + R² → <b>CD = R√2</b>.</li>
+<li>R√2 = √2 → R = 1.</li>
+<li>Check: CD = 2R·sin45° → √2 = 2R·(√2/2) → R = 1 ✓</li>
+</ol>
+<div class="ans">Answer: R = 1</div></div>
+</section>
+
+<section id="p6">
+<div class="fig"><svg viewBox="110 70 450 265" role="img" aria-label="Isosceles trapezoid with midline">
+<polygon points="140,300 540,300 420,92.2 260,92.2" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="140" y1="300" x2="420" y2="92.2" stroke="#378ADD" stroke-width="1"/>
+<line x1="540" y1="300" x2="260" y2="92.2" stroke="#378ADD" stroke-width="0.8" stroke-opacity="0.5"/>
+<line x1="200" y1="196.1" x2="280" y2="196.1" stroke="#D85A30" stroke-width="3"/>
+<line x1="280" y1="196.1" x2="480" y2="196.1" stroke="#1D9E75" stroke-width="3"/>
+<line x1="260" y1="92.2" x2="260" y2="300" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<path d="M248,300 L248,288 L260,288" fill="none" class="thin" stroke-width="0.8"/>
+<path d="M170,300 A30,30 0 0,0 155,274" fill="none" class="ink" stroke-width="1"/>
+<text class="th" x="122" y="318">A</text><text class="th" x="546" y="318">B</text><text class="th" x="424" y="86">C</text><text class="th" x="242" y="86">D</text>
+<text class="ts" x="176" y="290">60°</text><text class="ts" x="238" y="186" text-anchor="middle">2</text><text class="ts" x="400" y="186" text-anchor="middle">5</text><text class="ts" x="340" y="86" text-anchor="middle">4</text><text class="ts" x="340" y="322" text-anchor="middle">10</text><text class="ts" x="200" y="322" text-anchor="middle">3</text><text class="ts" x="164" y="196">6</text>
+</svg></div>
+<div class="sol"><h2>Problem 6</h2>
+<p class="task">Isosceles trapezoid. A diagonal cuts the midline into 2 cm and 5 cm. Leg = 6 cm. Find the acute angle.</p>
+<ol>
+<li>Each piece of the midline is a midline of a small triangle, so it is <b>half of a base</b>.</li>
+<li>Small base DC = 2·2 = <b>4</b>, big base AB = 2·5 = <b>10</b>.</li>
+<li>Draw the height DH. Isosceles → AH = (10 − 4)/2 = <b>3</b>.</li>
+<li>In right triangle ADH: cos∠A = AH/AD = 3/6 = 1/2 → ∠A = 60°.</li>
+</ol>
+<div class="ans">Answer: 60°</div></div>
+</section>
+
+<section id="p7">
+<div class="fig"><svg viewBox="200 45 280 250" role="img" aria-label="Right triangle in its circumcircle">
+<circle cx="340" cy="170" r="110" fill="#1D9E75" fill-opacity="0.15" stroke="#1D9E75" stroke-width="1"/>
+<polygon points="230,170 450,170 252,104" fill="none" class="ink" stroke-width="1.5"/>
+<path d="M249.5,115.4 L260.9,119.2 L263.5,107.8" fill="none" class="ink" stroke-width="1"/>
+<circle cx="340" cy="170" r="3" class="dot"/>
+<line x1="340" y1="170" x2="340" y2="280" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<text class="ts" x="348" y="234">R = 5</text><text class="ts" x="340" y="190" text-anchor="middle">c = 10</text><text class="ts" x="216" y="138">x</text><text class="ts" x="350" y="124">3x</text>
+</svg></div>
+<div class="sol"><h2>Problem 7</h2>
+<p class="task">Right triangle, legs in ratio 1 : 3, area 15. Find the area of the circumscribed disk.</p>
+<ol>
+<li>Legs x and 3x: ½·x·3x = 15 → <b>x² = 10</b>.</li>
+<li>c² = x² + 9x² = 10x² = 100 → <b>c = 10</b>.</li>
+<li>In a right triangle the hypotenuse is a diameter → <b>R = 5</b>.</li>
+<li>S = πR² = 25π.</li>
+</ol>
+<div class="ans">Answer: 25π ≈ 78.5</div></div>
+</section>
+
+<section id="p8">
+<div class="fig"><svg viewBox="110 45 340 290" role="img" aria-label="Right isosceles triangle with shaded AEC">
+<polygon points="140,300 380,60 380,140" fill="#D85A30" fill-opacity="0.3" stroke="none"/>
+<polygon points="140,300 380,300 380,60" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="140" y1="300" x2="380" y2="140" class="ink" stroke-width="1"/>
+<path d="M366,300 L366,286 L380,286" fill="none" class="ink" stroke-width="1"/>
+<text class="th" x="120" y="316">A</text><text class="th" x="388" y="316">B</text><text class="th" x="388" y="62">C</text><text class="th" x="390" y="146">E</text>
+<text class="ts" x="260" y="322" text-anchor="middle">AB = 12</text><text class="ts" x="390" y="104">a/3 = 4</text><text class="ts" x="390" y="228">2a/3 = 8</text>
+</svg></div>
+<div class="sol"><h2>Problem 8</h2>
+<p class="task">AB = BC, ∠B = 90°, EC/BC = 1/3, S(AEC) = 24 cm². Find AB.</p>
+<ol>
+<li>Let AB = BC = a. Then <b>EC = a/3</b>.</li>
+<li>In triangle AEC take EC as the base. Its height is <b>AB</b>, because AB ⊥ BC.</li>
+<li>S(AEC) = ½·(a/3)·a = a²/6.</li>
+<li>a²/6 = 24 → a² = 144 → a = 12.</li>
+</ol>
+<div class="ans">Answer: AB = 12 cm</div></div>
+</section>
+
+<section id="p9">
+<div class="fig"><svg viewBox="135 120 385 280" role="img" aria-label="Square with circle through M, O and C">
+<rect x="180" y="140" width="160" height="160" fill="none" class="ink" stroke-width="1.5"/>
+<circle cx="380" cy="260" r="126.5" fill="none" stroke="#1D9E75" stroke-width="1.2"/>
+<polygon points="260,300 260,220 340,140" fill="#D85A30" fill-opacity="0.15" stroke="#D85A30" stroke-width="1"/>
+<line x1="380" y1="260" x2="260" y2="300" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<circle cx="260" cy="300" r="3.5" fill="#D85A30"/><circle cx="260" cy="220" r="3.5" fill="#D85A30"/><circle cx="340" cy="140" r="3.5" fill="#D85A30"/><circle cx="380" cy="260" r="3" class="dot"/>
+<text class="th" x="162" y="318">A</text><text class="th" x="346" y="318">B</text><text class="th" x="346" y="134">C</text><text class="th" x="162" y="136">D</text>
+<text class="th" x="252" y="322">M</text><text class="th" x="240" y="216">O</text><text class="th" x="388" y="256">K</text>
+<text class="ts" x="318" y="296">R = √10</text><text class="ts" x="166" y="226" text-anchor="end">4</text>
+</svg></div>
+<div class="sol"><h2>Problem 9</h2>
+<p class="task">Square ABCD, side 4 m. M = midpoint of AB, O = center. Find the radius of the circle through M, O, C.</p>
+<ol>
+<li>Coordinates: A(0;0), B(4;0), C(4;4) → <b>M(2;0), O(2;2)</b>.</li>
+<li>Center K(x;y). KM = KO and M, O both have x = 2 → <b>y = 1</b>.</li>
+<li>KO = KC: (x−2)² + 1 = (x−4)² + 9 → 4x = 20 → <b>x = 5</b>. So K(5;1).</li>
+<li>R² = KM² = 3² + 1² = 10 → R = √10.</li>
+<li>Check: MC = 2√5, ∠MOC = 135°, R = MC/(2·sin135°) = √10 ✓</li>
+</ol>
+<div class="ans">Answer: R = √10 ≈ 3.16 m</div></div>
+</section>
+
+<section id="p10">
+<div class="fig"><svg viewBox="150 60 255 370" role="img" aria-label="Triangle with incenter O and circle through A, O, C">
+<circle cx="279" cy="307.1" r="114.3" fill="none" stroke="#1D9E75" stroke-width="1.2"/>
+<polygon points="180,250 239.9,85.5 378,250" fill="none" class="ink" stroke-width="1.5"/>
+<circle cx="259.1" cy="194.6" r="55.4" fill="none" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<polygon points="180,250 259.1,194.6 378,250" fill="#D85A30" fill-opacity="0.2" stroke="#D85A30" stroke-width="1"/>
+<circle cx="259.1" cy="194.6" r="3" class="dot"/>
+<text class="th" x="160" y="262">A</text><text class="th" x="236" y="76">B</text><text class="th" x="384" y="262">C</text><text class="th" x="250" y="182">O</text>
+<text class="ts" x="232" y="118">60°</text><text class="ts" x="244" y="226">120°</text><text class="ts" x="279" y="272" text-anchor="middle">AC = 9</text>
+</svg></div>
+<div class="sol"><h2>Problem 10</h2>
+<p class="task">AC = 9 m, ∠B = 60°, O = incenter. Find the radius of the circle through O, A, C.</p>
+<ol>
+<li>The incenter lies on the angle bisectors: ∠OAC = ∠A/2, ∠OCA = ∠C/2.</li>
+<li>∠A + ∠C = 180° − 60° = 120°.</li>
+<li>∠AOC = 180° − 120°/2 = <b>120°</b> (rule: ∠AOC = 90° + ∠B/2).</li>
+<li>Law of sines in AOC: R = AC/(2·sin120°) = 9/√3 = 3√3.</li>
+</ol>
+<div class="ans">Answer: R = 3√3 ≈ 5.2 m</div></div>
+</section>
+
+<section id="p11">
+<div class="fig"><svg viewBox="85 30 270 265" role="img" aria-label="Rhombus that must be a square">
+<polygon points="220,40 340,160 220,280 100,160" fill="#1D9E75" fill-opacity="0.12" class="ink" stroke-width="1.5"/>
+<line x1="220" y1="40" x2="220" y2="280" stroke="#D85A30" stroke-width="1.2"/>
+<line x1="100" y1="160" x2="340" y2="160" stroke="#D85A30" stroke-width="1.2"/>
+<path d="M220,148 L232,148 L232,160" fill="none" class="ink" stroke-width="0.8"/>
+<path d="M120,140 A28,28 0 0,1 120,180" fill="none" class="ink" stroke-width="1"/>
+<text class="ts" x="128" y="164">90°</text><text class="ts" x="290" y="92">a</text><text class="ts" x="268" y="152">d₁/2</text><text class="ts" x="226" y="222">d₂/2</text>
+</svg></div>
+<div class="sol"><h2>Problem 11</h2>
+<p class="task">Rhombus: (sum of diagonals) / (perimeter) = 1/√2. Find the acute angle.</p>
+<ol>
+<li>Side a, angle α. The diagonals are perpendicular and bisect each other: <b>d₁ = 2a·cos(α/2), d₂ = 2a·sin(α/2)</b>.</li>
+<li>(d₁ + d₂)/(4a) = (cos(α/2) + sin(α/2))/2 = 1/√2.</li>
+<li>cos(α/2) + sin(α/2) = √2.</li>
+<li>Use cos t + sin t = √2·sin(t + 45°): sin(α/2 + 45°) = 1 → α/2 + 45° = 90° → α = 90°.</li>
+</ol>
+<div class="ans">Answer: α = 90° (the rhombus is a square)</div>
+<p class="note">A square has no acute angle, so the problem probably has a typo. With the numbers given, 90° is the only solution, because √2 is the largest value of cos t + sin t. Ask your teacher.</p></div>
+</section>
+
+<section id="p12">
+<div class="fig"><svg viewBox="215 90 420 235" role="img" aria-label="Two tangents PA and PB">
+<circle cx="330" cy="190" r="100" fill="none" class="thin" stroke-width="1"/>
+<polygon points="246.1,290 394.3,113.4 604.7,290" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="394.3" y1="113.4" x2="330" y2="290" class="ink" stroke-width="1.5"/>
+<line x1="330" y1="190" x2="394.3" y2="113.4" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<line x1="330" y1="190" x2="330" y2="290" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<path d="M305,290 A25,25 0 0,1 338.6,266.5" fill="#1D9E75" fill-opacity="0.3" stroke="#1D9E75" stroke-width="1"/>
+<path d="M564.7,290 A40,40 0 0,1 574.1,264.3" fill="none" class="ink" stroke-width="1"/>
+<circle cx="330" cy="190" r="3" class="dot"/>
+<text class="th" x="390" y="106">A</text><text class="th" x="324" y="312">B</text><text class="th" x="226" y="312">C</text><text class="th" x="610" y="296">P</text><text class="th" x="312" y="186">O</text>
+<text class="ts" x="532" y="282">40°</text><text class="ts" x="346" y="282">70°</text><text class="ts" x="294" y="278">x</text><text class="ts" x="410" y="312">PA = PB</text>
+</svg></div>
+<div class="sol"><h2>Problem 12</h2>
+<p class="task">AC passes through center O, PA and PB are tangents, ∠APC = 40°. Find ∠ABC = x.</p>
+<ol>
+<li>Tangents from one point are equal: <b>PA = PB</b> → triangle APB is isosceles.</li>
+<li>∠PAB = ∠PBA = (180° − 40°)/2 = <b>70°</b>.</li>
+<li>C, B, P are on one line, so ∠ABC + ∠ABP = 180° → x = 180° − 70° = 110°.</li>
+<li>Check: OA ⊥ PA → ∠CAP = 90°, ∠ACP = 50°, ∠BAC = 90° − 70° = 20° → x = 180° − 20° − 50° = 110° ✓</li>
+</ol>
+<div class="ans">Answer: ∠ABC = 110°</div></div>
+</section>
+
+<section id="p13">
+<div class="fig"><svg viewBox="215 45 200 285" role="img" aria-label="Triangle MNP with median MQ">
+<polygon points="250,300 353.9,300 369,181" fill="#D85A30" fill-opacity="0.2" stroke="none"/>
+<polygon points="250,300 369,181 384.2,61.9" fill="#1D9E75" fill-opacity="0.15" stroke="none"/>
+<polygon points="250,300 353.9,300 384.2,61.9" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="250" y1="300" x2="369" y2="181" stroke="#D85A30" stroke-width="1.5"/>
+<path d="M285,300 A35,35 0 0,0 274.7,275.3" fill="none" class="ink" stroke-width="1"/>
+<circle cx="369" cy="181" r="3" class="dot"/>
+<text class="th" x="230" y="316">M</text><text class="th" x="358" y="318">P</text><text class="th" x="380" y="186">Q</text><text class="th" x="390" y="60">N</text>
+<text class="ts" x="290" y="290">45°</text><text class="ts" x="302" y="322" text-anchor="middle">2√3</text><text class="ts" x="372" y="246">4</text><text class="ts" x="384" y="126">4</text>
+</svg></div>
+<div class="sol"><h2>Problem 13</h2>
+<p class="task">MQ is a median, MP = 2√3, NP = 8, ∠QMP = 45°. Find S(MNP).</p>
+<ol>
+<li>Q is the midpoint of NP → <b>QP = NQ = 4</b>.</li>
+<li>Law of cosines in MQP, MQ = m: 16 = m² + 12 − 2·m·2√3·cos45° → <b>m² − 2√6·m − 4 = 0</b>.</li>
+<li>m = √6 ± √10. m &gt; 0 → <b>MQ = √6 + √10</b>.</li>
+<li>S(MQP) = ½·MQ·MP·sin45° = (√6 + √10)·√6/2 = (6 + 2√15)/2 = <b>3 + √15</b>.</li>
+<li>A median splits the triangle into two equal areas → S(MNP) = 2·(3 + √15).</li>
+</ol>
+<div class="ans">Answer: S = 6 + 2√15 ≈ 13.75</div></div>
+</section>
+
+<section id="p14">
+<div class="fig"><svg viewBox="125 140 310 195" role="img" aria-label="Circle with two secants from P">
+<circle cx="222.6" cy="237.4" r="88.5" fill="none" class="thin" stroke-width="1"/>
+<polygon points="160,174.8 160,300 410.4,300" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="160" y1="174.8" x2="285.2" y2="300" stroke="#D85A30" stroke-width="1.5"/>
+<path d="M160,286 L174,286 L174,300" fill="none" class="ink" stroke-width="1"/>
+<circle cx="222.6" cy="237.4" r="3" class="dot"/><circle cx="285.2" cy="300" r="3" class="dot"/><circle cx="310.3" cy="249.9" r="3" class="dot"/>
+<text class="th" x="140" y="174">A</text><text class="th" x="142" y="318">B</text><text class="th" x="280" y="320">C</text><text class="th" x="414" y="318">P</text><text class="th" x="312" y="242">D</text><text class="th" x="204" y="232">O</text>
+<text class="ts" x="222" y="320" text-anchor="middle">x</text><text class="ts" x="348" y="320" text-anchor="middle">x</text><text class="ts" x="246" y="198">6</text><text class="ts" x="364" y="268">4</text>
+</svg></div>
+<div class="sol"><h2>Problem 14</h2>
+<p class="task">Secants PB and PA meet the circle at C and D. ∠ABC = 90°, BC = CP, AD = 6 cm, DP = 4 cm. Find R.</p>
+<ol>
+<li>∠ABC = 90° is inscribed → it stands on a diameter → <b>AC = 2R</b>.</li>
+<li>Secant rule: PC·PB = PD·PA. Let BC = CP = x, so PB = 2x and PA = 10.</li>
+<li>x·2x = 4·10 → x² = 20 → <b>x = 2√5</b>, PB = 4√5.</li>
+<li>Right triangle ABP: AB² = PA² − PB² = 100 − 80 = <b>20</b>.</li>
+<li>Right triangle ABC: AC² = AB² + BC² = 20 + 20 = 40 → AC = 2√10.</li>
+<li>R = AC/2 = √10.</li>
+</ol>
+<div class="ans">Answer: R = √10 ≈ 3.16 cm</div></div>
+</section>
+
+<section id="p15">
+<div class="fig"><svg viewBox="160 25 345 345" role="img" aria-label="Triangle in circle of radius 4 with orthocenter H">
+<circle cx="330" cy="200" r="160" fill="none" class="thin" stroke-width="1"/>
+<polygon points="177.1,247.2 330,40 468.6,280" fill="none" class="ink" stroke-width="1.5"/>
+<g class="thin" stroke-width="0.8" stroke-dasharray="4 3"><line x1="177.1" y1="247.2" x2="381.5" y2="129.2"/><line x1="468.6" y1="280" x2="264.2" y2="129.2"/><line x1="330" y1="40" x2="315.7" y2="167.2"/></g>
+<line x1="330" y1="40" x2="315.7" y2="167.2" stroke="#D85A30" stroke-width="3"/>
+<circle cx="315.7" cy="167.2" r="4" fill="#D85A30"/>
+<circle cx="381.5" cy="129.2" r="2.5" class="dot"/><circle cx="264.2" cy="129.2" r="2.5" class="dot"/>
+<text class="th" x="156" y="256" text-anchor="start" dx="4">A</text><text class="th" x="324" y="36">B</text><text class="th" x="474" y="294">C</text><text class="th" x="300" y="186">H</text>
+<text class="th" x="388" y="124">K</text><text class="th" x="244" y="124">L</text>
+<text class="ts" x="330" y="96">BH</text><text class="ts" x="214" y="232">∠BAH</text>
+</svg></div>
+<div class="sol"><h2>Problem 15</h2>
+<p class="task">Altitudes from A and C meet at H. Circumradius R = 4, sin∠BAH = 2/5. Find BH.</p>
+<ol>
+<li>AK is an altitude, so in right triangle ABK: <b>∠BAH = ∠BAK = 90° − ∠B</b>.</li>
+<li>So cos B = sin(90° − B) = sin∠BAH = <b>2/5</b>.</li>
+<li>Vertex-to-orthocenter rule (same as problem 4): <b>BH = 2R·cos B</b>.</li>
+<li>BH = 2·4·(2/5) = 16/5.</li>
+</ol>
+<div class="ans">Answer: BH = 16/5 = 3.2</div></div>
+</section>
+
+<section id="p16">
+<div class="fig"><svg viewBox="160 95 265 225" role="img" aria-label="Right trapezoid with incircle tangent to CD at E">
+<polygon points="180,300 401.2,300 347.2,109.5 180,109.5" fill="none" class="ink" stroke-width="1.5"/>
+<circle cx="275.2" cy="204.8" r="95.2" fill="#1D9E75" fill-opacity="0.12" stroke="#1D9E75" stroke-width="1"/>
+<g stroke="#D85A30" stroke-width="1.2"><line x1="275.2" y1="204.8" x2="347.2" y2="109.5"/><line x1="275.2" y1="204.8" x2="401.2" y2="300"/></g>
+<line x1="275.2" y1="204.8" x2="366.9" y2="178.8" class="thin" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M180,286 L194,286 L194,300" fill="none" class="ink" stroke-width="1"/>
+<circle cx="275.2" cy="204.8" r="3" class="dot"/><circle cx="366.9" cy="178.8" r="3" class="dot"/>
+<text class="th" x="164" y="314">A</text><text class="th" x="164" y="108">B</text><text class="th" x="350" y="106">C</text><text class="th" x="404" y="316">D</text><text class="th" x="374" y="180">E</text><text class="th" x="258" y="200">O</text>
+<text class="ts" x="362" y="148">4</text><text class="ts" x="392" y="244">7</text><text class="ts" x="300" y="186">r</text>
+</svg></div>
+<div class="sol"><h2>Problem 16</h2>
+<p class="task">Right trapezoid (∠BAD = 90°) with an inscribed circle. The circle touches leg CD at E, CE = 4, DE = 7. Find r.</p>
+<ol>
+<li>BC ∥ AD, so <b>∠C + ∠D = 180°</b>.</li>
+<li>The center O is on the bisectors of ∠C and ∠D, so ∠OCD + ∠ODC = 90° → <b>∠COD = 90°</b>.</li>
+<li>The radius to the touching point is perpendicular to the tangent: <b>OE ⊥ CD</b>. So OE is the height to the hypotenuse of right triangle COD.</li>
+<li>Height to the hypotenuse: OE² = CE·DE → r² = 4·7 = 28 → r = 2√7.</li>
+<li>Check: AD = r + 7, BC = r + 4, height 2r. CD² = 3² + (2r)² = 9 + 112 = 121 → CD = 11 = 4 + 7 ✓</li>
+</ol>
+<div class="ans">Answer: r = 2√7 ≈ 5.29</div></div>
+</section>
+
+<section id="p17">
+<div class="fig"><svg viewBox="140 140 400 150" role="img" aria-label="Isosceles triangle with sides 8 and base angles 30 degrees">
+<polygon points="160,260 520.3,260 340.1,156" fill="#1D9E75" fill-opacity="0.12" class="ink" stroke-width="1.5"/>
+<line x1="340.1" y1="156" x2="340.1" y2="260" class="thin" stroke-width="0.8" stroke-dasharray="4 3"/>
+<path d="M200,260 A40,40 0 0,0 194.6,240" fill="none" class="ink" stroke-width="1"/>
+<path d="M480.3,260 A40,40 0 0,1 485.7,240" fill="none" class="ink" stroke-width="1"/>
+<text class="th" x="142" y="276">A</text><text class="th" x="526" y="276">C</text><text class="th" x="334" y="150">B</text>
+<text class="ts" x="206" y="254">30°</text><text class="ts" x="452" y="254">30°</text><text class="ts" x="320" y="184" text-anchor="end">120°</text>
+<text class="ts" x="240" y="200">8</text><text class="ts" x="436" y="200">8</text><text class="ts" x="346" y="236">h = 4</text>
+</svg></div>
+<div class="sol"><h2>Problem 17</h2>
+<p class="task">Isosceles triangle, AB = BC = 8, base angle π/6. Find the area.</p>
+<ol>
+<li>π/6 = 30°, so ∠A = ∠C = 30°.</li>
+<li>Angle at the top: ∠B = 180° − 2·30° = <b>120°</b>.</li>
+<li>S = ½·AB·BC·sin B = ½·8·8·sin120° = 32·(√3/2) = 16√3.</li>
+<li>Check: height h = 8·sin30° = 4, base AC = 2·8·cos30° = 8√3, S = ½·8√3·4 = 16√3 ✓</li>
+</ol>
+<div class="ans">Answer: S = 16√3 ≈ 27.7</div></div>
+</section>
+
+<section id="p18">
+<div class="fig"><svg viewBox="170 65 320 280" role="img" aria-label="Triangle ABC with altitude BD and point E">
+<polygon points="190,320 290,80 290,186.7" fill="#D85A30" fill-opacity="0.25" stroke="none"/>
+<polygon points="290,186.7 290,320 470,320" fill="#1D9E75" fill-opacity="0.2" stroke="none"/>
+<polygon points="190,320 290,80 470,320" fill="none" class="ink" stroke-width="1.5"/>
+<line x1="290" y1="80" x2="290" y2="320" class="ink" stroke-width="1.2"/>
+<line x1="190" y1="320" x2="290" y2="186.7" class="ink" stroke-width="1.2"/>
+<line x1="290" y1="186.7" x2="470" y2="320" class="ink" stroke-width="1.2"/>
+<path d="M290,306 L304,306 L304,320" fill="none" class="ink" stroke-width="1"/>
+<text class="th" x="172" y="336">A</text><text class="th" x="284" y="74">B</text><text class="th" x="476" y="336">C</text><text class="th" x="284" y="340">D</text><text class="th" x="298" y="182">E</text>
+<text class="ts" x="240" y="340" text-anchor="middle">5</text><text class="ts" x="380" y="340" text-anchor="middle">9</text>
+<text class="ts" x="296" y="136">16/3</text><text class="ts" x="296" y="262">20/3</text>
+</svg></div>
+<div class="sol"><h2>Problem 18</h2>
+<p class="task">Altitude BD splits AC into AD = 5 and DC = 9. E is on BD with BE : ED = 4 : 5, BD = 12. Find S(ABE) : S(DEC).</p>
+<ol>
+<li>BD = 12 is 9 parts: one part = 12/9 = 4/3 → <b>BE = 16/3, ED = 20/3</b>.</li>
+<li>Triangle ABE: base BE lies on BD, and its height is the distance from A to BD, which is <b>AD = 5</b> (because BD ⊥ AC).</li>
+<li>S(ABE) = ½·(16/3)·5 = <b>40/3</b>.</li>
+<li>Triangle DEC: right angle at D, legs ED = 20/3 and DC = 9 → S(DEC) = ½·(20/3)·9 = <b>30</b>.</li>
+<li>Ratio: (40/3) : 30 = 40 : 90 = 4 : 9.</li>
+</ol>
+<div class="ans">Answer: S(ABE) : S(DEC) = 4 : 9</div></div>
+</section>
+
+<section id="p19">
+<div class="fig"><svg viewBox="185 55 295 280" role="img" aria-label="Circle with chords AC and BD crossing at E">
+<circle cx="330" cy="190" r="130" fill="none" class="thin" stroke-width="1"/>
+<polygon points="246.4,90.4 458,167.4 306.3,194.2" fill="#D85A30" fill-opacity="0.15" stroke="none"/>
+<line x1="246.4" y1="90.4" x2="374.5" y2="312.2" class="ink" stroke-width="1.5"/>
+<line x1="458" y1="167.4" x2="202" y2="212.6" class="ink" stroke-width="1.5"/>
+<line x1="246.4" y1="90.4" x2="458" y2="167.4" class="ink" stroke-width="1.5"/>
+<line x1="202" y1="212.6" x2="374.5" y2="312.2" class="ink" stroke-width="1.5"/>
+<circle cx="330" cy="190" r="2.5" class="dot"/><circle cx="306.3" cy="194.2" r="3" class="dot"/>
+<text class="th" x="232" y="84">A</text><text class="th" x="464" y="166">B</text><text class="th" x="376" y="330">C</text><text class="th" x="186" y="218">D</text><text class="th" x="290" y="214">E</text>
+<text class="ts" x="268" y="120">40°</text><text class="ts" x="330" y="222">70°</text><text class="ts" x="342" y="290">x</text><text class="ts" x="380" y="174">30°</text>
+</svg></div>
+<div class="sol"><h2>Problem 19</h2>
+<p class="task">A, B, C, D are on a circle, chords AC and BD meet at E. ∠BAE = 40°, ∠BEC = 70°. Find ∠DCE = x.</p>
+<ol>
+<li>∠BEC is an exterior angle of triangle ABE, so it equals the sum of the two far angles: ∠BEC = ∠BAE + ∠ABE.</li>
+<li>70° = 40° + ∠ABE → <b>∠ABE = ∠ABD = 30°</b>.</li>
+<li>∠ABD and ∠ACD are inscribed angles on the same arc AD, so <b>they are equal</b>.</li>
+<li>x = ∠DCE = ∠DCA = ∠ABD = 30°.</li>
+</ol>
+<div class="ans">Answer: ∠DCE = 30°</div></div>
+</section>
+
+<section id="p20">
+<div class="fig"><svg viewBox="120 65 320 245" role="img" aria-label="Tangents PA and PB, arc AB of 120 degrees">
+<circle cx="240" cy="190" r="103.9" fill="none" class="thin" stroke-width="1"/>
+<path d="M240,86.1 A103.9,103.9 0 0,1 330,242" fill="none" stroke="#D85A30" stroke-width="3.5"/>
+<line x1="150" y1="86.1" x2="420" y2="86.1" class="ink" stroke-width="1.2"/>
+<line x1="420" y1="86.1" x2="300" y2="294" class="ink" stroke-width="1.2"/>
+<polygon points="240,86.1 145.8,233.9 330,242" fill="none" class="ink" stroke-width="1.5"/>
+<g class="thin" stroke-width="0.8" stroke-dasharray="4 3"><line x1="240" y1="190" x2="240" y2="86.1"/><line x1="240" y1="190" x2="330" y2="242"/><line x1="240" y1="86.1" x2="330" y2="242"/></g>
+<circle cx="240" cy="190" r="3" class="dot"/>
+<text class="th" x="234" y="78">A</text><text class="th" x="336" y="258">B</text><text class="th" x="124" y="244">C</text><text class="th" x="426" y="84">P</text><text class="th" x="222" y="196">O</text>
+<text class="ts" x="164" y="230">60°</text><text class="ts" x="246" y="186">120°</text><text class="ts" x="324" y="80">6</text><text class="ts" x="380" y="170">6</text>
+</svg></div>
+<div class="sol"><h2>Problem 20</h2>
+<p class="task">A, B, C are on a circle, PA and PB are tangents, PA = 6 cm, ∠ACB = 60°. Find the length of arc AB that ∠ACB stands on.</p>
+<ol>
+<li>Inscribed angle = half its arc: ∠ACB = 60° → <b>arc AB = 120°</b>, so ∠AOB = 120°.</li>
+<li>Tangents are perpendicular to radii: ∠OAP = ∠OBP = 90°. In quadrilateral OAPB: ∠APB = 360° − 90° − 90° − 120° = <b>60°</b>.</li>
+<li>PO bisects ∠APB, so ∠APO = 30°. In right triangle OAP: R = OA = PA·tan30° = 6/√3 = <b>2√3</b>.</li>
+<li>Arc length: L = R·θ, with θ = 120° = 2π/3. L = 2√3·(2π/3) = 4√3π/3.</li>
+</ol>
+<div class="ans">Answer: arc AB = 4√3π/3 ≈ 7.26 cm</div>
+<p class="note">Here "arc length" means the length along the circle, not the chord. The chord is AB = 6, because triangle PAB is equilateral.</p></div>
+</section>
+
+</main>
+</body>
+</html>
