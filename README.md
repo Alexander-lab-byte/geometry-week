@@ -1,5 +1,10 @@
 # geometry-week
 
-Step-by-step solutions with to-scale drawings for Бие даалт №1 (12th grade geometry, problems 1–20).
+Step-by-step solutions with to-scale figures for 12th grade homework.
 
-Open `index.html` in a browser. It is a single static page with no build step.
+- `index.html` – home page
+- `week1.html` – Бие даалт 1: geometry (problems 1–20)
+- `week2.html` – Бие даалт 2: vectors (problems 1–20)
+- `style.css` – shared calculator-style design
+
+Static site, no build step. Every push to `main` redeploys on Vercel.
